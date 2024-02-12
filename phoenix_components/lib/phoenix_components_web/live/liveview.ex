@@ -1,6 +1,7 @@
 defmodule PhoenixComponentsWeb.CartLive.Index do
   use PhoenixComponentsWeb, :live_view
   alias PhoenixComponentsWeb.CartLive.ProductItem
+  alias PhoenixComponentsWeb.Mycomponent
 
   def mpunt(_params, _session, socket) do
     {:ok, assign(socket, total_itesms: 0)}
@@ -14,9 +15,17 @@ defmodule PhoenixComponentsWeb.CartLive.Index do
   def render(assigns) do
     ~H"""
 
-    Hi <%= @name %> <%= self() |> :erlang.pid_to_list() %>
 
-     <div class="w-full">
+
+    <Mycomponent.heading title="Products" />
+
+
+    <Mycomponent.greet />
+    <Mycomponent.notification/>
+
+
+
+     <div class="w-full items-center pt-5">
      <h2 class="text-2xl font-semibold mb-3">Shopping Cart - Total Items: <%= @total_items %></h2>
     <.live_component :for={id <- 1..3} module={ProductItem} id={id} />
 
