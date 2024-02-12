@@ -5,7 +5,10 @@ defmodule PhoenixComponentsWeb.PostLive.PostComponent do
     ~H"""
     <div id={"post-" <> Integer.to_string(@post.id)} class="post bg-black-100 border-solid border border-gray-300 rounded-lg p-4 mb-4 mt-2">
       <div class="flex items-center mb-2">
-        <div class="w-10 h-10 bg-gray-300 rounded-full mr-4"></div>
+      <div class="w-10 h-10 bg-gray-300 rounded-full mr-4 flex items-center justify-center">
+      <img src="/images/user.svg" alt="User Icon" />
+  </div>
+
         <div class="flex-1">
           <div class="text-sm font-medium text-gray-800"><%= @post.username %></div>
           <div class="text-xs text-gray-600">Just now</div>
